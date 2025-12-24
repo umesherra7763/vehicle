@@ -7,12 +7,16 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
     db.init_app(app)
-    app.app_context().push()
+
+    with app.app_context():
+        create_tables()   
+
     return app
+
 
 app =create_app()
 from controllers.routes import *
 
-if __name__ == '__main__':
-    create_tables()
+# if __name__ == '__main__':
+#     create_tables()
     #app.run()
