@@ -15,4 +15,4 @@ from controllers.routes import *
 
 if __name__ == '__main__':
     create_tables()
-    app.run(debug=True)
+    #app.run()

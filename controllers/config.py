@@ -1,4 +1,11 @@
+import os
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///vehicle_parking.db'
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        "DATABASE_URL",
+        "sqlite:///vehicle_parking.db"
+    )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SECRET_KEY = 'jctE657r568*^%YFII8'
+    SECRET_KEY = os.getenv(
+        "SECRET_KEY",
+        "jctE657r568*^%YFII8"
+    )
